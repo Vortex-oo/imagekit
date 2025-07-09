@@ -19,10 +19,10 @@ const dbConnect = async () => {
     }
 
     if (!cached.promise) {
-        mongoose
+        cached.promise = mongoose
             .connect(MONGODB_URI)
             .then(() => {
-                mongoose.connection
+                return mongoose.connection
             })
     }
     try {
